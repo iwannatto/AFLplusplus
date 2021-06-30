@@ -1130,6 +1130,7 @@ fsrv_run_result_t afl_fsrv_run_target(afl_forkserver_t *fsrv, u32 timeout,
   /* we have the fork server (or faux server) up and running
   First, tell it if the previous run timed out. */
 
+  // printf("fsrv->fsrv_ctl_fd = %d", fsrv->fsrv_ctl_fd);
   if ((res = write(fsrv->fsrv_ctl_fd, &write_value, 4)) != 4) {
 
     if (*stop_soon_p) { return 0; }
